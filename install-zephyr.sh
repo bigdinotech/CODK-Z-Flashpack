@@ -2,7 +2,7 @@
 Z_VER="$1"
 ZSDK_VER="$2"
 Z_PATH=$(readlink -m "$(pwd)/../zephyr")
-ZSDK_FILE="zephyr-sdk-${ZSDK_VER}-i686-setup.run"
+ZSDK_FILE="zephyr-sdk-${ZSDK_VER}-setup.run"
 ZSDK_PATH=$(readlink -m "$(pwd)/../zephyr-sdk")
 
 if [ -d ${Z_PATH} ]; then
@@ -19,7 +19,7 @@ if [ -d "${ZSDK_PATH}" ]; then
 else
     if [ ! -f /tmp/${ZSDK_FILE} ] ; then
         echo "Downloading Zephyr SDK"
-        curl -o /tmp/${ZSDK_FILE} -L https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/${ZSDK_VER}-i686/${ZSDK_FILE}
+        curl -o /tmp/${ZSDK_FILE} -L https://nexus.zephyrproject.org/content/repositories/releases/org/zephyrproject/zephyr-sdk/${ZSDK_VER}/${ZSDK_FILE}
         chmod 755 /tmp/${ZSDK_FILE}
     fi
     echo "Installing Zephyr SDK to ${ZSDK_PATH}"
